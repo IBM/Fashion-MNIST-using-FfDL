@@ -82,3 +82,6 @@ Go to FfDL web UI. Upload the .zip to "Choose model definition zip to upload". U
 Expects to receive a file path to a picture. Over 30 different file types are supported although only the two (.png and .jpg) have been tested extensively. These file types are listed at (http://pillow.readthedocs.io/en/5.1.x/handbook/image-file-formats.html)
 
 The models trained on the Fashion MNIST data will work best when there is only one object in the picture and the background of the picture is pure black. Additionally, the object in the picture should be completely in frame.
+
+## Reference
+This Keras model example is based on https://github.com/biosopher/unofficial-watson-studio-python-utils
