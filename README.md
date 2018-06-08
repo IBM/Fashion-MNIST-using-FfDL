@@ -1,7 +1,7 @@
 # Fashion MNIST using FfDL
-Train your Fashion MNIST model with [Fabric for Deep Learning (FfDL)](https://github.com/IBM/FfDL) on Kubernetes with GPU
+Train your Fashion MNIST model with [Fabric for Deep Learning (FfDL)](https://github.com/IBM/FfDL) on Kubernetes Cluster configured with GPU. This model is defined in Keras and trained using TensorFlow using Fabric for Deep Learning which is deployed on Kubernetes GPU cluster running at IBM Cloud.
 
-<img src="fashion-mnist-webapp/static/img/ffdl-fashion.png">
+<img src="fashion-mnist-webapp/static/img/ffdl-fashion.png" height="60%" width="60%">
 
 ## Steps
 1. [Train your Fashion MNIST model with FfDL](fashion-train)
