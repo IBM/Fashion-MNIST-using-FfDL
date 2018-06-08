@@ -3,6 +3,9 @@ Train your Fashion MNIST model with [Fabric for Deep Learning (FfDL)](https://gi
 
 <img src="fashion-mnist-webapp/static/img/ffdl-fashion.png" height="60%" width="60%">
 
+## Prerequisites
+You need to have [Fabric for Deep Learning](https://github.com/IBM/FfDL) deployed on a Kubernetes Cluster with at least 4 CPUs and 8Gb Memory.
+
 ## Steps
 1. [Train your Fashion MNIST model with FfDL](fashion-train)
 2. [Deploy your Fashion MNIST model with Seldon](seldon-deployment)
