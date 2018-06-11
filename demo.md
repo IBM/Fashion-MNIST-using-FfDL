@@ -35,5 +35,5 @@ This demo assumes the Kubernetes Cluster has FfDL, Seldon, and Webapp built and 
 
 5. Use the Sample Web-app at http://<Webapp_Load_Balancer_IP>:8088 to demo your ML Web-app.
    * The demo works the best if you use fashion images with black background. 
-   * A list of demo/test images is avaliable at the `sample-test-data` directory.
+   * Sample demo images are avaliable at the `sample-test-data` directory. These images are not part of the default images on the demo website.
    * If you want to delete all your uploaded images, go to http://<Webapp_Load_Balancer_IP>:8088/cleanup and click **Delete User Uploaded Image**. Then click the FfDL icon to return to the main demo page.
