@@ -7,6 +7,11 @@ This demo assumes the Kubernetes Cluster has FfDL, Seldon, and Webapp built and 
 1. Go to the FfDL GUI. You can obtain your FfDL GUI in the FfDL repository by running `make status`.
 
 2. Submit a training job using the FfDL GUI or command line. The model definition file is at `fashion-train/fashion-training.zip` and the manifest is at `fashion-train/manifest.yml`
+   **GUI instructions**
+   Upload your model definition file and manifest file. Then click **Submit Training Job**
+   ![ui-example](fashion-mnist-webapp/static/img/ui-example.png)
+
+   **Command line instructions**
    ```shell
    # Setup commands
    git clone https://github.com/IBM/Fashion-MNIST-using-FfDL
@@ -34,6 +39,6 @@ This demo assumes the Kubernetes Cluster has FfDL, Seldon, and Webapp built and 
 4. We use Seldon to serve our model that are stored in the Cloud Object Storage.
 
 5. Use the Sample Web-app at http://<Webapp_Load_Balancer_IP>:8088 to demo your ML Web-app.
-   * The demo works the best if you use fashion images with black background. 
+   * The demo works the best if you use fashion images with black background.
    * Sample demo images are avaliable at the `sample-test-data` directory. These images are not part of the default images on the demo website.
    * If you want to delete all your uploaded images, go to http://<Webapp_Load_Balancer_IP>:8088/cleanup and click **Delete User Uploaded Image**. Then click the FfDL icon to return to the main demo page.
