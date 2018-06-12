@@ -7,6 +7,7 @@ This demo assumes the Kubernetes Cluster has FfDL, Seldon, and Webapp built and 
 1. Go to the FfDL GUI. You can obtain your FfDL GUI in the FfDL repository by running `make status`.
 
 2. Submit a training job using either the FfDL GUI or command line. The model definition file is at `fashion-train/fashion-training.zip` and the manifest is at `fashion-train/manifest.yml`
+
    **GUI instructions**
    Upload your model definition file and manifest file. Then click **Submit Training Job**
    ![ui-example](fashion-mnist-webapp/static/img/ui-example.png)
