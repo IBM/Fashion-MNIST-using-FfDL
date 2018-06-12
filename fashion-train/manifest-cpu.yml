@@ -7,11 +7,11 @@
 #       training your model
 # memory: Replace with the amount of memory to be
 #         dedicated to training your model
-name: Fashion-MNIST-GPU-Job
-description: Fashion-MNIST keras model with k80 GPU
+name: Fashion-MNIST-CPU-Job
+description: Fashion-MNIST keras model with 30 CPU
 version: "1.0"
-gpus: 1
-cpus: 8
+gpus: 0
+cpus: 30
 memory: 16GB
 
 # Object stores that allow the system to retrieve training data.
@@ -37,16 +37,16 @@ data_stores:
       container: mnist-trained-model
     connection:
       type: s3_datastore
-      auth_url: http://s3-api.us-geo.objectstorage.softlayer.net
-      user_name: Agq18GFRwKLxMX71Ij7Z
-      password: OpSkwqNNhgktx674jaB4Qt2fL6dsgYOHFbkN4QKW
+      auth_url: http://s3.default.svc.cluster.local
+      user_name: test
+      password: test
 
 # name:    The name of the Deep Learning framework that will be used
 # version: The version of the framework to be used
 # command: The command to initiate training
 framework:
   name: tensorflow
-  version: latest-gpu-py3
+  version: latest-py3
   command: pip3 install keras; pip3 install scikit-learn; python3 experiment.py
 
 # Setup for Graphics that will be plotted within FfDL UI
