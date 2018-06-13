@@ -37,9 +37,9 @@ data_stores:
       container: mnist-trained-model
     connection:
       type: s3_datastore
-      auth_url: http://s3.default.svc.cluster.local
-      user_name: test
-      password: test
+      auth_url: http://s3-api.us-geo.objectstorage.softlayer.net
+      user_name: Agq18GFRwKLxMX71Ij7Z
+      password: OpSkwqNNhgktx674jaB4Qt2fL6dsgYOHFbkN4QKW
 
 # name:    The name of the Deep Learning framework that will be used
 # version: The version of the framework to be used
