@@ -1,4 +1,6 @@
-# Build the FfDL Fashion MNIST Web App and push it on Kubernetes.
+# Build the FfDL Fashion MNIST Web App and push it on Kubernetes
+
+The webapp is designed to take images that are uploaded, display them on the webpage, and show the names of the classes with the top 3 confidences. There is an accompanying word cloud where the size of the word is correlated to the frequency of the class being the number one choice for a picture.
 
 1. Go to the `fashion-mnist-webapp` directory, run the following commands to containerize your web application and push it to DockerHub.
   ```shell
