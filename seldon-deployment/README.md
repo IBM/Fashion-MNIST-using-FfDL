@@ -1,6 +1,6 @@
 # Deploy your Fashion MNIST model with Seldon
 
-Since FfDL stores your trained model in your Object Storage, it's very simple to deploy it using Seldon using the following steps.
+[Seldon](https://github.com/SeldonIO/seldon-core) is an open source platform for deploying machine learning models on Kubernetes. Since FfDL stores your trained model in your Object Storage, it's very simple to deploy and serve it using Seldon with the following steps.
 
 1. Install Seldon(https://github.com/SeldonIO/seldon-core/blob/master/docs/install.md) on your Kubernetes Cluster. Then, install S2I(https://github.com/openshift/source-to-image#installation) for building any Seldon model image.
 
@@ -28,4 +28,4 @@ Since FfDL stores your trained model in your Object Storage, it's very simple to
   kubectl apply -f fashion-seldon.json
   ```
 
-Congratulations, your model is now ready to do some predictions.
+Congratulations, your model is now ready to take input and return predictions of confidence in the picture being of a certain class.

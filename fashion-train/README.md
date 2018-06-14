@@ -1,5 +1,7 @@
 # Train your Fashion MNIST model with FfDL
 
+The model that is being trained is a CNN with 3 convolutional layers followed by 2 dense layers. The job will run for 30 epochs with a batch size of 128.
+
 ## Step 1 - Upload Fashion MNIST dataset and setup FfDL client
 
 This assumes that you have access to the cluster and that you have provisioned FfDL already. To check if you have access to your cluster run the following command and if a table of information about the pods on your cluster appears then you have access.
@@ -61,7 +63,7 @@ Create a .yml file with the necessary information. manifest.yml has further inst
 
 We will now go back to this directory and deploy our training job to FfDL using the path to the .yml and path to the folder containing the experiment.py
 ```bash
-cd <path to this demo>/fashion-train
+cd <path to this demo repo>/fashion-train
 # Replace manifest.yml with the path to your .yml file
 # Replace Image with the path to the folder containing your file created in step 6
 $CLI_CMD train manifest.yml fashion-training
