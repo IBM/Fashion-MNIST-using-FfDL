@@ -28,7 +28,6 @@ from tornado import httpserver, ioloop, web
 from tornado.options import define, options, parse_command_line
 import numpy
 from PIL import Image
-import io
 
 modelEndpoint = os.environ.get("MODEL_ENDPOINT")
 # Command Line Options
@@ -47,7 +46,8 @@ static_img_path = "static/img/images/"
 temp_img_prefix = "MAX-"
 image_captions = collections.OrderedDict()
 VALID_EXT = ['png', 'jpg', 'jpeg', 'gif']
-FASHION_LIST = ['T-shirt/top','Trouser','Pullover','Dress','Coat','Sandal','Shirt','Sneaker','Bag','Ankle boot']
+FASHION_LIST = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
+                'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
 
 
 class MainHandler(web.RequestHandler):
@@ -105,10 +105,9 @@ def valid_file_ext(filename):
 
 # Runs ML on given image
 def run_ml(img_path):
-    img_file = {'image': open(img_path, 'rb')}
     image = preprocess_object(img_path)
     # Run curl command to send json to seldon
-    features = [str(i+1) for i in range(0,784)]
+    features = [str(i+1) for i in range(0, 784)]
     req = {"data": {"names": features, "ndarray": image}}
     results = requests.post(ml_endpoint, json=req)
     request_results = results.json()
@@ -121,8 +120,9 @@ def run_ml(img_path):
     image_captions[img_path] = caption
     return caption
 
+
 # preprocess and post processing images
-def preprocess_object(image_path, target_shape=(28,28)):
+def preprocess_object(image_path, target_shape=(28, 28)):
     """
 
     image_path:    File path to image
@@ -137,15 +137,16 @@ def preprocess_object(image_path, target_shape=(28,28)):
     # Changes the image from a 1d array of size 784 to 2d of 28x28
     feature_list = []
     row = []
-    for x in range(0,28):
+    for x in range(0, 28):
         range1 = 28 * x
         row = []
-        for vals in range(0,28):
+        for vals in range(0, 28):
             pixel = image[range1 + vals]
             row.append([pixel])
         feature_list.append(row)
 
     return [feature_list]
+
 
 def read_image(image_path, target_shape):
     """
@@ -162,6 +163,7 @@ def read_image(image_path, target_shape):
     image = image.convert('L')
     raw = list(image.getdata())
     return raw
+
 
 def postprocess(results):
     """
@@ -181,6 +183,7 @@ def postprocess(results):
         post_results.append((argsort_rev, result_rev_sort))
     return post_results
 
+
 def postpostprocess(post_results):
     """
 
@@ -188,11 +191,15 @@ def postpostprocess(post_results):
                     with the same key as the index of the confidence value
     """
 
-    FASHION_LIST = ['T-shirt/top','Trouser','Pullover','Dress','Coat','Sandal','Shirt','Sneaker','Bag','Ankle boot']
+    FASHION_LIST = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
+                    'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
 
     cap_array = []
-    for i in range(0,3):
-        cap_array.append({"index": i, "caption": FASHION_LIST[post_results[0][0][i]],"probability": str(round(post_results[0][1][i]*100, 4))})
+    for i in range(0, 3):
+        cap_array.append({"index": i,
+                          "caption": FASHION_LIST[post_results[0][0][i]],
+                          "probability": str(round(post_results[0][1][i]*100,
+                                                   4))})
     cap_json = {'predictions': cap_array}
     return cap_json
 
@@ -279,8 +286,8 @@ def main():
     #     requests.get(ml_endpoint)
     # except requests.exceptions.ConnectionError:
     #     logging.error(
-    #         "Cannot connect to the Image Caption Generator REST endpoint at " +
-    #         options.ml_endpoint)
+    #         "Cannot connect to the Image Caption Generator REST endpoint at "
+    #         + options.ml_endpoint)
     #     raise SystemExit
 
     logging.info("Starting web server")
